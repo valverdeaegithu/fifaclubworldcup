@@ -3,375 +3,327 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TATA IPL 2025 | Bingewave Sports</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Club World Cup 2025 | Modern Schedule</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #ff2d75;
-            --secondary: #6a1b9a;
-            --dark: #1a1a2e;
-            --light: #f8f9fa;
-            --success: #28a745;
-            --warning: #fd7e14;
-            --info: #17a2b8;
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --secondary: #f59e0b;
+            --dark: #1e293b;
+            --light: #f8fafc;
+            --live: #ef4444;
+            --upcoming: #10b981;
+            --completed: #64748b;
+            --card-bg: rgba(255, 255, 255, 0.95);
+            --glass-effect: rgba(255, 255, 255, 0.08);
+            --shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
-        
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        
+
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #0f172a, #1e293b);
             color: var(--light);
             min-height: 100vh;
-            padding: 2rem;
-            background-attachment: fixed;
+            padding-bottom: 3rem;
         }
-        
-        header {
+
+        .header {
+            background: linear-gradient(to right, rgba(37, 99, 235, 0.9), rgba(29, 78, 216, 0.9));
+            padding: 2rem 1.5rem;
             text-align: center;
-            margin-bottom: 2.5rem;
             position: relative;
-        }
-        
-        .logo {
-            width: 120px;
-            margin-bottom: 1rem;
-            filter: drop-shadow(0 0 10px rgba(255, 45, 117, 0.5));
-        }
-        
-        h1 {
-            font-size: 2.5rem;
-            background: linear-gradient(to right, #ff2d75, #c35bfb);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            margin-bottom: 0.5rem;
-            font-weight: 800;
-            letter-spacing: 1px;
-        }
-        
-        .subtitle {
-            color: rgba(255, 255, 255, 0.7);
-            font-size: 1rem;
-            margin-bottom: 1.5rem;
-        }
-        
-        .season-badge {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            padding: 0.5rem 1.5rem;
-            border-radius: 50px;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-        
-        .season-badge i {
-            color: var(--primary);
-        }
-        
-        .container {
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-        
-        .matches-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-            gap: 1.5rem;
-            margin-top: 2rem;
-        }
-        
-        .match-card {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
-            border-radius: 12px;
             overflow: hidden;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: all 0.3s ease;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
-            position: relative;
+            box-shadow: var(--shadow);
         }
-        
-        .match-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
-            border-color: rgba(255, 45, 117, 0.3);
-        }
-        
-        .match-card.live {
-            border-left: 4px solid var(--primary);
-        }
-        
-        .match-card.upcoming {
-            border-left: 4px solid var(--info);
-        }
-        
-        .match-header {
-            padding: 1rem 1.5rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        
-        .match-number {
-            font-size: 0.85rem;
-            color: rgba(255, 255, 255, 0.7);
-            font-weight: 500;
-        }
-        
-        .status {
-            padding: 0.35rem 0.8rem;
-            border-radius: 50px;
-            font-size: 0.75rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-        
-        .status.live {
-            background: rgba(255, 45, 117, 0.2);
-            color: var(--primary);
-            animation: pulse 2s infinite;
-        }
-        
-        .status.upcoming {
-            background: rgba(23, 162, 184, 0.2);
-            color: var(--info);
-        }
-        
-        .match-content {
-            padding: 1.5rem;
-        }
-        
-        .teams {
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
-        }
-        
-        .team {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-        
-        .team-logo {
-            width: 40px;
-            height: 40px;
-            object-fit: contain;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.1);
-            padding: 0.25rem;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-        
-        .team-name {
-            font-weight: 600;
-            font-size: 1.1rem;
-            flex-grow: 1;
-        }
-        
-        .vs {
-            text-align: center;
-            margin: 0.5rem 0;
-            font-weight: 800;
-            color: rgba(255, 255, 255, 0.5);
-            position: relative;
-        }
-        
-        .vs::before, .vs::after {
-            content: "";
+
+        .header::before {
+            content: '';
             position: absolute;
-            top: 50%;
-            width: 30%;
-            height: 1px;
-            background: rgba(255, 255, 255, 0.2);
-        }
-        
-        .vs::before {
-            left: 0;
-        }
-        
-        .vs::after {
-            right: 0;
-        }
-        
-        .match-details {
-            margin-top: 1.5rem;
-            padding-top: 1rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        
-        .venue {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            color: rgba(255, 255, 255, 0.7);
-            font-size: 0.9rem;
-            margin-bottom: 0.5rem;
-        }
-        
-        .time {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            color: rgba(255, 255, 255, 0.9);
-            font-weight: 500;
-            font-size: 0.95rem;
-        }
-        
-        .action-btn {
-            display: block;
-            width: 100%;
-            padding: 0.8rem;
-            margin-top: 1.5rem;
-            border-radius: 8px;
-            border: none;
-            font-weight: 600;
-            text-align: center;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-decoration: none;
-        }
-        
-        .watch-btn {
-            background: linear-gradient(to right, var(--primary), var(--secondary));
-            color: white;
-        }
-        
-        .watch-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(255, 45, 117, 0.4);
-        }
-        
-        .not-started {
-            background: rgba(255, 255, 255, 0.1);
-            color: rgba(255, 255, 255, 0.7);
-            margin-top: 1.5rem;
-            padding: 0.8rem;
-            border-radius: 8px;
-            text-align: center;
-            font-size: 0.9rem;
-        }
-        
-        @keyframes pulse {
-            0% {
-                box-shadow: 0 0 0 0 rgba(255, 45, 117, 0.4);
-            }
-            70% {
-                box-shadow: 0 0 0 10px rgba(255, 45, 117, 0);
-            }
-            100% {
-                box-shadow: 0 0 0 0 rgba(255, 45, 117, 0);
-            }
-        }
-        
-        /* Popup Styles */
-        #popup {
-            position: fixed;
             top: 0;
             left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.9);
+            right: 0;
+            bottom: 0;
+            background: url('https://images.unsplash.com/photo-1574629810360-7efbbe195018?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80') center/cover;
+            opacity: 0.2;
+            z-index: -1;
+        }
+
+        .logo-container {
             display: flex;
             justify-content: center;
             align-items: center;
-            z-index: 1000;
-            backdrop-filter: blur(5px);
+            margin-bottom: 1.5rem;
         }
-        
-        .popup-content {
-            background: linear-gradient(145deg, #1a1a2e, #16213e);
-            color: white;
-            padding: 2rem;
-            text-align: center;
-            border-radius: 16px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-            width: 90%;
-            max-width: 400px;
-            border: 1px solid rgba(255, 45, 117, 0.3);
-            position: relative;
-            overflow: hidden;
+
+        .logo {
+            height: 80px;
+            filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1));
         }
-        
-        .popup-content::before {
-            content: "";
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(255, 45, 117, 0.1) 0%, transparent 70%);
-            animation: rotate 20s linear infinite;
-            z-index: -1;
-        }
-        
-        .popup-content h2 {
-            margin: 0 0 1rem;
-            color: white;
-            font-size: 1.5rem;
+
+        .header h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.5rem;
             font-weight: 700;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(to right, #fff, #e2e8f0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
-        
-        .popup-content p {
-            margin: 0 0 1.5rem;
-            color: rgba(255, 255, 255, 0.8);
-            line-height: 1.6;
+
+        .header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            margin-bottom: 0.5rem;
         }
-        
-        .popup-btn {
-            width: 100%;
-            padding: 0.8rem;
-            margin: 0.5rem 0;
+
+        .date-range {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 0.5rem 1rem;
+            border-radius: 2rem;
+            font-weight: 600;
+            margin-top: 0.5rem;
+            backdrop-filter: blur(10px);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1.5rem;
+        }
+
+        .filters {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .filter-btn {
+            padding: 0.75rem 1.5rem;
+            border-radius: 2rem;
+            background: var(--glass-effect);
             border: none;
-            border-radius: 8px;
-            font-size: 1rem;
+            color: var(--light);
+            font-family: 'Montserrat', sans-serif;
             font-weight: 600;
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: var(--transition);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
-        
-        .join-btn {
-            background: linear-gradient(to right, var(--primary), var(--secondary));
-            color: white;
-        }
-        
-        .join-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(255, 45, 117, 0.4);
-        }
-        
-        .close-btn {
-            background: rgba(255, 255, 255, 0.1);
-            color: white;
-        }
-        
-        .close-btn:hover {
+
+        .filter-btn:hover {
             background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
         }
-        
-        @keyframes rotate {
-            from {
-                transform: rotate(0deg);
-            }
-            to {
-                transform: rotate(360deg);
-            }
+
+        .filter-btn.active {
+            background: var(--primary);
+            box-shadow: 0 4px 6px rgba(37, 99, 235, 0.3);
         }
-        
-        /* Responsive adjustments */
+
+        .matches-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .match-card {
+            background: var(--card-bg);
+            border-radius: 1rem;
+            overflow: hidden;
+            transition: var(--transition);
+            box-shadow: var(--shadow);
+            position: relative;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .match-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+
+        .match-header {
+            padding: 1rem 1.5rem;
+            background: linear-gradient(to right, var(--primary), var(--primary-dark));
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .match-stage {
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .match-date {
+            font-size: 0.85rem;
+            opacity: 0.9;
+        }
+
+        .match-content {
+            padding: 1.5rem;
+        }
+
+        .teams {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .team {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 40%;
+        }
+
+        .team-logo {
+            height: 70px;
+            width: 70px;
+            object-fit: contain;
+            margin-bottom: 0.75rem;
+            transition: var(--transition);
+            filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1));
+        }
+
+        .team:hover .team-logo {
+            transform: scale(1.1);
+        }
+
+        .team-name {
+            font-weight: 600;
+            text-align: center;
+            color: var(--dark);
+        }
+
+        .vs {
+            font-size: 1.25rem;
+            font-weight: bold;
+            color: var(--secondary);
+            width: 20%;
+            text-align: center;
+            color: var(--dark);
+            position: relative;
+        }
+
+        .vs::before, .vs::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            width: 30px;
+            height: 2px;
+            background: var(--secondary);
+        }
+
+        .vs::before {
+            left: -40px;
+        }
+
+        .vs::after {
+            right: -40px;
+        }
+
+        .match-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px dashed rgba(30, 41, 59, 0.2);
+        }
+
+        .match-time {
+            font-weight: 600;
+            color: var(--dark);
+            font-size: 1.1rem;
+        }
+
+        .match-day {
+            display: inline-block;
+            background: rgba(30, 41, 59, 0.1);
+            padding: 0.25rem 0.75rem;
+            border-radius: 1rem;
+            font-size: 0.75rem;
+            color: var(--dark);
+            margin-top: 0.5rem;
+        }
+
+        .status-btn {
+            padding: 0.5rem 1.25rem;
+            border-radius: 2rem;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            transition: var(--transition);
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .upcoming {
+            background-color: var(--upcoming);
+            color: white;
+        }
+
+        .live {
+            background-color: var(--live);
+            color: white;
+            animation: pulse 1.5s infinite;
+            box-shadow: 0 0 10px rgba(239, 68, 68, 0.5);
+        }
+
+        .completed {
+            background-color: var(--completed);
+            color: white;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7); }
+            70% { transform: scale(1.02); box-shadow: 0 0 0 10px rgba(239, 68, 68, 0); }
+            100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(239, 68, 68, 0); }
+        }
+
+        .section-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin: 2rem 0 1rem;
+            color: white;
+            position: relative;
+            padding-left: 1rem;
+        }
+
+        .section-title::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: var(--secondary);
+            border-radius: 2px;
+        }
+
         @media (max-width: 768px) {
-            h1 {
+            .header h1 {
                 font-size: 2rem;
             }
             
@@ -379,146 +331,502 @@
                 grid-template-columns: 1fr;
             }
             
-            .match-card {
-                max-width: 100%;
+            .vs::before, .vs::after {
+                width: 20px;
             }
+            
+            .vs::before {
+                left: -30px;
+            }
+            
+            .vs::after {
+                right: -30px;
+            }
+        }
+
+        /* Modern scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--primary);
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--primary-dark);
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <img src="https://upload.wikimedia.org/wikipedia/en/thumb/2/2e/Indian_Premier_League_Official_Logo.svg/1200px-Indian_Premier_League_Official_Logo.svg.png" alt="IPL Logo" class="logo">
-            <h1>TATA INDIAN PREMIER LEAGUE</h1>
-            <p class="subtitle">Season 18 • 75 Matches • 10 Teams</p>
-            <div class="season-badge">
-                <i class="fas fa-trophy"></i>
-                <span>IPL 2025</span>
-            </div>
-        </header>
-        
-        <div class="matches-grid" id="matches"></div>
+    <div class="header">
+        <div class="logo-container">
+            <img src="https://www.fifa.com/dist/favicon.ico" alt="Club World Cup Logo" class="logo">
+        </div>
+        <h1>FIFA Club World Cup 2025</h1>
+        <p>The pinnacle of club football competition</p>
+        <div class="date-range">June 15 - July 13, 2025</div>
     </div>
-
-    <div id="popup">
-        <div class="popup-content">
-            <h2>Never Miss an Update!</h2>
-            <p>Join our Telegram channel for live match notifications, highlights, and exclusive content.</p>
-            <button class="popup-btn join-btn" onclick="window.open('https://t.me/axtream_bingewav', '_blank')">
-                <i class="fab fa-telegram"></i> Join Telegram
-            </button>
-            <button class="popup-btn close-btn" onclick="closePopup()">
-                Maybe Later
-            </button>
+    
+    <div class="container">
+        <div class="filters">
+            <button class="filter-btn">All Matches</button>
+            <button class="filter-btn active">Upcoming</button>
+            <button class="filter-btn">Live</button>
+            <button class="filter-btn">Completed</button>
+        </div>
+        
+        <h2 class="section-title">Group Stage</h2>
+        
+        <div class="matches-grid">
+            <!-- Match 1 -->
+            <div class="match-card" id="match1">
+                <div class="match-header">
+                    <span class="match-stage">Group Stage</span>
+                    <span class="match-date">June 15, 2025</span>
+                </div>
+                <div class="match-content">
+                    <div class="teams">
+                        <div class="team">
+                            <img src="https://ssl.gstatic.com/onebox/media/sports/logos/JdNbaaw7JlDHvPHZaX2V2A_96x96.png" alt="Al Ahly" class="team-logo">
+                            <div class="team-name">Al Ahly</div>
+                        </div>
+                        <div class="vs">VS</div>
+                        <div class="team">
+                            <img src="https://ssl.gstatic.com/onebox/media/sports/logos/dn0bMtTbbpx7v3Ieq6TZtQ_64x64.png" alt="Inter Miami" class="team-logo">
+                            <div class="team-name">Inter Miami</div>
+                        </div>
+                    </div>
+                    <div class="match-day">Match Day 1 of 3</div>
+                    <div class="match-info">
+                        <div class="match-time">5:30 AM IST</div>
+                        <button class="status-btn upcoming">Upcoming</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Match 2 -->
+            <div class="match-card" id="match2">
+                <div class="match-header">
+                    <span class="match-stage">Group Stage</span>
+                    <span class="match-date">June 15, 2025</span>
+                </div>
+                <div class="match-content">
+                    <div class="teams">
+                        <div class="team">
+                            <img src="https://ssl.gstatic.com/onebox/media/sports/logos/-_cmntP5q_pHL7g5LfkRiw_96x96.png" alt="Bayern Munich" class="team-logo">
+                            <div class="team-name">Bayern Munich</div>
+                        </div>
+                        <div class="vs">VS</div>
+                        <div class="team">
+                            <img src="https://ssl.gstatic.com/onebox/media/sports/logos/ydlyVc6hUPBXoaT3wR_lFg_96x96.png" alt="Auckland City" class="team-logo">
+                            <div class="team-name">Auckland City</div>
+                        </div>
+                    </div>
+                    <div class="match-day">Match Day 1 of 3</div>
+                    <div class="match-info">
+                        <div class="match-time">9:30 PM IST</div>
+                        <button class="status-btn upcoming">Upcoming</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Match 3 -->
+            <div class="match-card" id="match3">
+                <div class="match-header">
+                    <span class="match-stage">Group Stage</span>
+                    <span class="match-date">June 16, 2025</span>
+                </div>
+                <div class="match-content">
+                    <div class="teams">
+                        <div class="team">
+                            <img src="https://ssl.gstatic.com/onebox/media/sports/logos/mcpMspef1hwHwi9qrfp4YQ_96x96.png" alt="PSG" class="team-logo">
+                            <div class="team-name">PSG</div>
+                        </div>
+                        <div class="vs">VS</div>
+                        <div class="team">
+                            <img src="https://ssl.gstatic.com/onebox/media/sports/logos/pEqmA7CL-VRo4Llq3rwIPA_96x96.png" alt="Atlético Madrid" class="team-logo">
+                            <div class="team-name">Atlético Madrid</div>
+                        </div>
+                    </div>
+                    <div class="match-day">Match Day 1 of 3</div>
+                    <div class="match-info">
+                        <div class="match-time">12:30 AM IST</div>
+                        <button class="status-btn upcoming">Upcoming</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Match 4 -->
+            <div class="match-card" id="match4">
+                <div class="match-header">
+                    <span class="match-stage">Group Stage</span>
+                    <span class="match-date">June 16, 2025</span>
+                </div>
+                <div class="match-content">
+                    <div class="teams">
+                        <div class="team">
+                            <img src="https://ssl.gstatic.com/onebox/media/sports/logos/7spurne-xDt2p6C0imYYNA_96x96.png" alt="Palmeiras" class="team-logo">
+                            <div class="team-name">Palmeiras</div>
+                        </div>
+                        <div class="vs">VS</div>
+                        <div class="team">
+                            <img src="https://ssl.gstatic.com/onebox/media/sports/logos/QkkllEKwkj60jEVtOEZWAg_96x96.png" alt="Porto" class="team-logo">
+                            <div class="team-name">Porto</div>
+                        </div>
+                    </div>
+                    <div class="match-day">Match Day 1 of 3</div>
+                    <div class="match-info">
+                        <div class="match-time">3:30 AM IST</div>
+                        <button class="status-btn upcoming">Upcoming</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Match 5 -->
+            <div class="match-card" id="match5">
+                <div class="match-header">
+                    <span class="match-stage">Group Stage</span>
+                    <span class="match-date">June 16, 2025</span>
+                </div>
+                <div class="match-content">
+                    <div class="teams">
+                        <div class="team">
+                            <img src="https://ssl.gstatic.com/onebox/media/sports/logos/KLDWYp-H8CAOT9H_JgizRg_96x96.png" alt="Botafogo" class="team-logo">
+                            <div class="team-name">Botafogo</div>
+                        </div>
+                        <div class="vs">VS</div>
+                        <div class="team">
+                            <img src="https://ssl.gstatic.com/onebox/media/sports/logos/k6m3hoy4Rn3KRrMYSYDjog_96x96.png" alt="Seattle Sounders" class="team-logo">
+                            <div class="team-name">Seattle Sounders</div>
+                        </div>
+                    </div>
+                    <div class="match-day">Match Day 1 of 3</div>
+                    <div class="match-info">
+                        <div class="match-time">7:30 AM IST</div>
+                        <button class="status-btn upcoming">Upcoming</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Match 6 -->
+            <div class="match-card" id="match6">
+                <div class="match-header">
+                    <span class="match-stage">Group Stage</span>
+                    <span class="match-date">June 17, 2025</span>
+                </div>
+                <div class="match-content">
+                    <div class="teams">
+                        <div class="team">
+                            <img src="https://ssl.gstatic.com/onebox/media/sports/logos/fhBITrIlbQxhVB6IjxUO6Q_96x96.png" alt="Chelsea" class="team-logo">
+                            <div class="team-name">Chelsea</div>
+                        </div>
+                        <div class="vs">VS</div>
+                        <div class="team">
+                            <img src="https://ssl.gstatic.com/onebox/media/sports/logos/IR3AyUUEoSWoeTmicHAlKA_96x96.png" alt="León" class="team-logo">
+                            <div class="team-name">León</div>
+                        </div>
+                    </div>
+                    <div class="match-day">Match Day 1 of 3</div>
+                    <div class="match-info">
+                        <div class="match-time">12:30 AM IST</div>
+                        <button class="status-btn upcoming">Upcoming</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Match 7 -->
+            <div class="match-card" id="match7">
+                <div class="match-header">
+                    <span class="match-stage">Group Stage</span>
+                    <span class="match-date">June 17, 2025</span>
+                </div>
+                <div class="match-content">
+                    <div class="teams">
+                        <div class="team">
+                            <img src="https://ssl.gstatic.com/onebox/media/sports/logos/YO1impuFJT2hex6wvCd9Pw_96x96.png" alt="Boca Juniors" class="team-logo">
+                            <div class="team-name">Boca Juniors</div>
+                        </div>
+                        <div class="vs">VS</div>
+                        <div class="team">
+                            <img src="https://ssl.gstatic.com/onebox/media/sports/logos/nFwABZ-4n_A3BGXT9A7Adg_96x96.png" alt="Benfica" class="team-logo">
+                            <div class="team-name">Benfica</div>
+                        </div>
+                    </div>
+                    <div class="match-day">Match Day 1 of 3</div>
+                    <div class="match-info">
+                        <div class="match-time">3:30 AM IST</div>
+                        <button class="status-btn upcoming">Upcoming</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Match 8 -->
+            <div class="match-card" id="match8">
+                <div class="match-header">
+                    <span class="match-stage">Group Stage</span>
+                    <span class="match-date">June 17, 2025</span>
+                </div>
+                <div class="match-content">
+                    <div class="teams">
+                        <div class="team">
+                            <img src="https://ssl.gstatic.com/onebox/media/sports/logos/orE554NToSkH6nuwofe7Yg_96x96.png" alt="Flamengo" class="team-logo">
+                            <div class="team-name">Flamengo</div>
+                        </div>
+                        <div class="vs">VS</div>
+                        <div class="team">
+                            <img src="https://ssl.gstatic.com/onebox/media/sports/logos/Kf32x8gh5SCMEqvKjVGLfg_96x96.png" alt="Espérance de Tunis" class="team-logo">
+                            <div class="team-name">Espérance de Tunis</div>
+                        </div>
+                    </div>
+                    <div class="match-day">Match Day 1 of 3</div>
+                    <div class="match-info">
+                        <div class="match-time">6:30 AM IST</div>
+                        <button class="status-btn upcoming">Upcoming</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Match 9 -->
+            <div class="match-card" id="match9">
+                <div class="match-header">
+                    <span class="match-stage">Group Stage</span>
+                    <span class="match-date">June 17, 2025</span>
+                </div>
+                <div class="match-content">
+                    <div class="teams">
+                        <div class="team">
+                            <img src="https://ssl.gstatic.com/onebox/media/sports/logos/fCMxMMDF2AZPU7LzYKSlig_96x96.png" alt="Fluminense" class="team-logo">
+                            <div class="team-name">Fluminense</div>
+                        </div>
+                        <div class="vs">VS</div>
+                        <div class="team">
+                            <img src="https://ssl.gstatic.com/onebox/media/sports/logos/FZnTSH2rbHFos4BnlWAItw_96x96.png" alt="Borussia Dortmund" class="team-logo">
+                            <div class="team-name">Borussia Dortmund</div>
+                        </div>
+                    </div>
+                    <div class="match-day">Match Day 1 of 3</div>
+                    <div class="match-info">
+                        <div class="match-time">9:30 PM IST</div>
+                        <button class="status-btn upcoming">Upcoming</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Match 10 -->
+            <div class="match-card" id="match10">
+                <div class="match-header">
+                    <span class="match-stage">Group Stage</span>
+                    <span class="match-date">June 18, 2025</span>
+                </div>
+                <div class="match-content">
+                    <div class="teams">
+                        <div class="team">
+                            <img src="https://ssl.gstatic.com/onebox/media/sports/logos/700Mj6lUNkbBdvOVEbjC3g_96x96.png" alt="River Plate" class="team-logo">
+                            <div class="team-name">River Plate</div>
+                        </div>
+                        <div class="vs">VS</div>
+                        <div class="team">
+                            <img src="https://ssl.gstatic.com/onebox/media/sports/logos/F-09rxdgECid61-Rj8Uxrw_96x96.png" alt="Urawa Reds" class="team-logo">
+                            <div class="team-name">Urawa Reds</div>
+                        </div>
+                    </div>
+                    <div class="match-day">Match Day 1 of 3</div>
+                    <div class="match-info">
+                        <div class="match-time">12:30 AM IST</div>
+                        <button class="status-btn upcoming">Upcoming</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Match 11 -->
+            <div class="match-card" id="match11">
+                <div class="match-header">
+                    <span class="match-stage">Group Stage</span>
+                    <span class="match-date">June 18, 2025</span>
+                </div>
+                <div class="match-content">
+                    <div class="teams">
+                        <div class="team">
+                            <img src="https://ssl.gstatic.com/onebox/media/sports/logos/-K1h8OOTItUmjKqR2g5Nnw_96x96.png" alt="Ulsan" class="team-logo">
+                            <div class="team-name">Ulsan</div>
+                        </div>
+                        <div class="vs">VS</div>
+                        <div class="team">
+                            <img src="https://ssl.gstatic.com/onebox/media/sports/logos/Lmp8fUABWWKRwNrHf71m5w_96x96.png" alt="Mamelodi Sundowns" class="team-logo">
+                            <div class="team-name">Mamelodi Sundowns</div>
+                        </div>
+                    </div>
+                    <div class="match-day">Match Day 1 of 3</div>
+                    <div class="match-info">
+                        <div class="match-time">3:30 AM IST</div>
+                        <button class="status-btn upcoming">Upcoming</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Match 12 -->
+            <div class="match-card" id="match12">
+                <div class="match-header">
+                    <span class="match-stage">Group Stage</span>
+                    <span class="match-date">June 18, 2025</span>
+                </div>
+                <div class="match-content">
+                    <div class="teams">
+                        <div class="team">
+                            <img src="https://ssl.gstatic.com/onebox/media/sports/logos/LXZ8fEgzf0_FwSyq15buPw_96x96.png" alt="Monterrey" class="team-logo">
+                            <div class="team-name">Monterrey</div>
+                        </div>
+                        <div class="vs">VS</div>
+                        <div class="team">
+                            <img src="https://ssl.gstatic.com/onebox/media/sports/logos/l2-icwsMhIvsbRw8AwC1yg_96x96.png" alt="Inter Milan" class="team-logo">
+                            <div class="team-name">Inter Milan</div>
+                        </div>
+                    </div>
+                    <div class="match-day">Match Day 1 of 3</div>
+                    <div class="match-info">
+                        <div class="match-time">6:30 AM IST</div>
+                        <button class="status-btn upcoming">Upcoming</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Match 13 -->
+            <div class="match-card" id="match13">
+                <div class="match-header">
+                    <span class="match-stage">Group Stage</span>
+                    <span class="match-date">June 18, 2025</span>
+                </div>
+                <div class="match-content">
+                    <div class="teams">
+                        <div class="team">
+                            <img src="https://ssl.gstatic.com/onebox/media/sports/logos/z44l-a0W1v5FmgPnemV6Xw_96x96.png" alt="Man City" class="team-logo">
+                            <div class="team-name">Man City</div>
+                        </div>
+                        <div class="vs">VS</div>
+                        <div class="team">
+                            <img src="https://ssl.gstatic.com/onebox/media/sports/logos/JxwBeJ9HrjZX_vRqTPwY6A_96x96.png" alt="Wydad AC" class="team-logo">
+                            <div class="team-name">Wydad AC</div>
+                        </div>
+                    </div>
+                    <div class="match-day">Match Day 1 of 3</div>
+                    <div class="match-info">
+                        <div class="match-time">9:30 PM IST</div>
+                        <button class="status-btn upcoming">Upcoming</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Match 14 -->
+            <div class="match-card" id="match14">
+                <div class="match-header">
+                    <span class="match-stage">Group Stage</span>
+                    <span class="match-date">June 19, 2025</span>
+                </div>
+                <div class="match-content">
+                    <div class="teams">
+                        <div class="team">
+                            <img src="https://ssl.gstatic.com/onebox/media/sports/logos/Th4fAVAZeCJWRcKoLW7koA_96x96.png" alt="Real Madrid" class="team-logo">
+                            <div class="team-name">Real Madrid</div>
+                        </div>
+                        <div class="vs">VS</div>
+                        <div class="team">
+                            <img src="https://ssl.gstatic.com/onebox/media/sports/logos/HGVsnyWvMiGVotxhgicdSQ_96x96.png" alt="Al Hilal" class="team-logo">
+                            <div class="team-name">Al Hilal</div>
+                        </div>
+                    </div>
+                    <div class="match-day">Match Day 1 of 3</div>
+                    <div class="match-info">
+                        <div class="match-time">12:30 AM IST</div>
+                        <button class="status-btn upcoming">Upcoming</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Match 15 -->
+            <div class="match-card" id="match15">
+                <div class="match-header">
+                    <span class="match-stage">Group Stage</span>
+                    <span class="match-date">June 19, 2025</span>
+                </div>
+                <div class="match-content">
+                    <div class="teams">
+                        <div class="team">
+                            <img src="https://ssl.gstatic.com/onebox/media/sports/logos/9dscoX8iYhzbjSNxXVp2gQ_96x96.png" alt="Pachua" class="team-logo">
+                            <div class="team-name">Pachua</div>
+                        </div>
+                        <div class="vs">VS</div>
+                        <div class="team">
+                            <img src="https://ssl.gstatic.com/onebox/media/sports/logos/vQhr4NoE_4Yg1IhUZvbRNw_96x96.png" alt="RB Salzburg" class="team-logo">
+                            <div class="team-name">RB Salzburg</div>
+                        </div>
+                    </div>
+                    <div class="match-day">Match Day 1 of 3</div>
+                    <div class="match-info">
+                        <div class="match-time">3:30 AM IST</div>
+                        <button class="status-btn upcoming">Upcoming</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Match 16 -->
+            <div class="match-card" id="match16">
+                <div class="match-header">
+                    <span class="match-stage">Group Stage</span>
+                    <span class="match-date">June 19, 2025</span>
+                </div>
+                <div class="match-content">
+                    <div class="teams">
+                        <div class="team">
+                            <img src="https://ssl.gstatic.com/onebox/media/sports/logos/vA9sLyDeHX3q7pn8QTmoeQ_96x96.png" alt="Al Ain" class="team-logo">
+                            <div class="team-name">Al Ain</div>
+                        </div>
+                        <div class="vs">VS</div>
+                        <div class="team">
+                            <img src="https://ssl.gstatic.com/onebox/media/sports/logos/6lal-0xwWtos5HI99HRvuQ_96x96.png" alt="Juventus" class="team-logo">
+                            <div class="team-name">Juventus</div>
+                        </div>
+                    </div>
+                    <div class="match-day">Match Day 1 of 3</div>
+                    <div class="match-info">
+                        <div class="match-time">6:30 AM IST</div>
+                        <button class="status-btn upcoming">Upcoming</button>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
     <script>
-        async function fetchMatches() {
-            try {
-                const response = await fetch("https://raw.githubusercontent.com/valverdeaegithu/fifa/refs/heads/main/fifa.json");
-                const data = await response.json();
-                const matchesContainer = document.getElementById("matches");
-                matchesContainer.innerHTML = "";
-                const currentTime = new Date().getTime();
-
-                function getTeamLogo(teamName) {
-                    const team = data.flags.find(flag => flag.name === teamName);
-                    return team ? team.img : "https://via.placeholder.com/40";
-                }
-
-                data.matches.forEach(match => {
-                    const startTime = new Date(`${match.date.split('-').reverse().join('-')}T${match.start_time}:00`).getTime();
-                    const endTime = new Date(`${match.date.split('-').reverse().join('-')}T${match.end_time}:00`).getTime();
-
-                    if (currentTime > endTime) return; // Hide completed matches
-
-                    const isLive = currentTime >= startTime && currentTime <= endTime;
-                    const statusText = isLive ? "Live" : "Upcoming";
-                    const statusClass = isLive ? "status live" : "status upcoming";
-                    const cardClass = isLive ? "match-card live" : "match-card upcoming";
-
-                    const matchCard = document.createElement("div");
-                    matchCard.className = cardClass;
-                    matchCard.innerHTML = `
-                        <div class="match-header">
-                            <span class="match-number">Match ${match.match_no}</span>
-                            <span class="${statusClass}">
-                                ${isLive ? '<i class="fas fa-circle"></i> ' : ''}
-                                ${statusText}
-                            </span>
-                        </div>
-                        <div class="match-content">
-                            <div class="teams">
-                                <div class="team">
-                                    <img src="${getTeamLogo(match.team1)}" alt="${match.team1}" class="team-logo">
-                                    <span class="team-name">${match.team1}</span>
-                                </div>
-                                <div class="vs">VS</div>
-                                <div class="team">
-                                    <img src="${getTeamLogo(match.team2)}" alt="${match.team2}" class="team-logo">
-                                    <span class="team-name">${match.team2}</span>
-                                </div>
-                            </div>
-                            <div class="match-details">
-                                <div class="venue">
-                                    <i class="fas fa-map-marker-alt"></i>
-                                    <span>${match.venue}</span>
-                                </div>
-                                <div class="time">
-                                    <i class="far fa-clock"></i>
-                                    <span>${match.start_time}, ${match.date}</span>
-                                </div>
-                            </div>
-                            ${isLive ? 
-                                `<a href="/match?id=${match.id}" class="action-btn watch-btn">
-                                    <i class="fas fa-play"></i> Watch Live
-                                </a>` : 
-                                `<div class="not-started">
-                                    <i class="far fa-clock"></i> Match starts soon
-                                </div>`
-                            }
-                        </div>
-                    `;
-                    matchesContainer.appendChild(matchCard);
-                });
-            } catch (error) {
-                console.error("Error fetching matches:", error);
-                const matchesContainer = document.getElementById("matches");
-                matchesContainer.innerHTML = `
-                    <div style="grid-column: 1/-1; text-align: center; padding: 2rem; color: rgba(255,255,255,0.7);">
-                        <i class="fas fa-exclamation-triangle" style="font-size: 2rem; margin-bottom: 1rem;"></i>
-                        <p>Failed to load matches. Please try again later.</p>
-                        <button onclick="fetchMatches()" style="margin-top: 1rem; padding: 0.5rem 1rem; background: var(--primary); border: none; border-radius: 5px; color: white; cursor: pointer;">
-                            Retry
-                        </button>
-                    </div>
-                `;
-            }
-        }
-        
-        // Close popup function
-        function closePopup() {
-            const popup = document.getElementById('popup');
-            popup.style.display = 'none';
-            // Set a cookie or localStorage to remember user's choice
-            localStorage.setItem('popupClosed', 'true');
-        }
-        
-        // Show popup only if it hasn't been closed before
-        document.addEventListener('DOMContentLoaded', () => {
-            fetchMatches();
+        // Function to convert IST time to Date object
+        function createISTDate(dateString, timeString) {
+            const [day, month, year] = dateString.split(' ')[1].split('-').map(Number);
+            const [hours, minutes] = timeString.split(':').map(Number);
             
-            if (!localStorage.getItem('popupClosed')) {
-                setTimeout(() => {
-                    document.getElementById('popup').style.display = 'flex';
-                }, 3000);
+            // IST is UTC+5:30
+            const utcHours = hours - 5;
+            const utcMinutes = minutes - 30;
+            
+            // Adjust if minutes go negative
+            let adjustedHours = utcHours;
+            let adjustedMinutes = utcMinutes;
+            if (utcMinutes < 0) {
+                adjustedHours -= 1;
+                adjustedMinutes += 60;
             }
             
-            // Refresh data every minute
-            setInterval(fetchMatches, 60000);
-        });
-    </script>
-    <script disable-devtool-auto src='https://cdn.jsdelivr.net/npm/disable-devtool'></script>
-</body>
-</html>
+            return new Date(Date.UTC(year, month - 1, day, adjustedHours, adjustedMinutes));
+        }
+        
+        // Function to update match status based on current time
+        function updateMatchStatus() {
+            const now = new Date();
+            const matches = [
+                { id: 'match1', date: '15 Jun 2025', time: '5:30' },
+                { id: 'match2', date: '15 Jun 2025', time: '21:30' },
+             
