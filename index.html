@@ -20,6 +20,11 @@
             --shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
             --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             --telegram: #2AABEE;
+            --group-stage: #3498db;
+            --round-of-16: #9b59b6;
+            --quarter-final: #e67e22;
+            --semi-final: #e74c3c;
+            --final: #f1c40f;
         }
 
         * {
@@ -149,6 +154,23 @@
             position: relative;
             backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.1);
+            border-left: 5px solid var(--group-stage);
+        }
+
+        .match-card.round-of-16 {
+            border-left-color: var(--round-of-16);
+        }
+
+        .match-card.quarter-final {
+            border-left-color: var(--quarter-final);
+        }
+
+        .match-card.semi-final {
+            border-left-color: var(--semi-final);
+        }
+
+        .match-card.final {
+            border-left-color: var(--final);
         }
 
         .match-card:hover {
@@ -428,7 +450,8 @@
         <!-- Group Stage Matchday 1 -->
         <h2 class="section-title">Group Stage - Matchday 1</h2>
         <div class="matches-grid">
-          <div class="match-card" id="match1">
+            <!-- Match 1 -->
+            <div class="match-card" id="match1">
                 <div class="match-header">
                     <span class="match-stage">Group Stage</span>
                     <span class="match-date">June 15, 2025</span>
@@ -816,9 +839,9 @@
                     </div>
                 </div>
             </div>
-            
+
             <!-- Match 16 -->
-            <div class="match-card" id="match16">
+           <div class="match-card" id="match16">
                 <div class="match-header">
                     <span class="match-stage">Group Stage</span>
                     <span class="match-date">June 19, 2025</span>
@@ -842,290 +865,4 @@
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
-        </div>
-        
-        <!-- Group Stage Matchday 2 -->
-        <h2 class="section-title">Group Stage - Matchday 2</h2>
-        <div class="matches-grid">
-            <!-- Match 1 -->
-            <div class="match-card" id="match17">
-                <div class="match-header">
-                    <span class="match-stage">Group Stage</span>
-                    <span class="match-date">June 19, 2025</span>
-                </div>
-                <div class="match-content">
-                    <div class="teams">
-                        <div class="team">
-                            <img src="https://ssl.gstatic.com/onebox/media/sports/logos/7spurne-xDt2p6C0imYYNA_96x96.png" alt="Palmeiras" class="team-logo">
-                            <div class="team-name">Palmeiras</div>
-                        </div>
-                        <div class="vs">VS</div>
-                        <div class="team">
-                            <img src="https://ssl.gstatic.com/onebox/media/sports/logos/JdNbaaw7JlDHvPHZaX2V2A_96x96.png" alt="Al Ahly" class="team-logo">
-                            <div class="team-name">Al Ahly</div>
-                        </div>
-                    </div>
-                    <div class="match-day">Match Day 2 of 3</div>
-                    <div class="match-info">
-                        <div class="match-time">9:30 AM IST</div>
-                        <button class="status-btn upcoming">Upcoming</button>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Match 2 -->
-            <div class="match-card" id="match18">
-                <div class="match-header">
-                    <span class="match-stage">Group Stage</span>
-                    <span class="match-date">June 20, 2025</span>
-                </div>
-                <div class="match-content">
-                    <div class="teams">
-                        <div class="team">
-                            <img src="https://ssl.gstatic.com/onebox/media/sports/logos/dn0bMtTbbpx7v3Ieq6TZtQ_64x64.png" alt="Inter Miami" class="team-logo">
-                            <div class="team-name">Inter Miami</div>
-                        </div>
-                        <div class="vs">VS</div>
-                        <div class="team">
-                            <img src="https://ssl.gstatic.com/onebox/media/sports/logos/QkkllEKwkj60jEVtOEZWAg_96x96.png" alt="Porto" class="team-logo">
-                            <div class="team-name">Porto</div>
-                        </div>
-                    </div>
-                    <div class="match-day">Match Day 2 of 3</div>
-                    <div class="match-info">
-                        <div class="match-time">12:30 AM IST</div>
-                        <button class="status-btn upcoming">Upcoming</button>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Continue with all Matchday 2 matches -->
-            <!-- ... -->
-            
-            <!-- Match 16 -->
-            <div class="match-card" id="match32">
-                <div class="match-header">
-                    <span class="match-stage">Group Stage</span>
-                    <span class="match-date">June 23, 2025</span>
-                </div>
-                <div class="match-content">
-                    <div class="teams">
-                        <div class="team">
-                            <img src="https://ssl.gstatic.com/onebox/media/sports/logos/z44l-a0W1v5FmgPnemV6Xw_96x96.png" alt="Man City" class="team-logo">
-                            <div class="team-name">Man City</div>
-                        </div>
-                        <div class="vs">VS</div>
-                        <div class="team">
-                            <img src="https://ssl.gstatic.com/onebox/media/sports/logos/vA9sLyDeHX3q7pn8QTmoeQ_96x96.png" alt="Al Ain" class="team-logo">
-                            <div class="team-name">Al Ain</div>
-                        </div>
-                    </div>
-                    <div class="match-day">Match Day 2 of 3</div>
-                    <div class="match-info">
-                        <div class="match-time">6:30 AM IST</div>
-                        <button class="status-btn upcoming">Upcoming</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Group Stage Matchday 3 -->
-        <h2 class="section-title">Group Stage - Matchday 3</h2>
-        <div class="matches-grid">
-            <!-- Match 1 -->
-            <div class="match-card" id="match33">
-                <div class="match-header">
-                    <span class="match-stage">Group Stage</span>
-                    <span class="match-date">June 24, 2025</span>
-                </div>
-                <div class="match-content">
-                    <div class="teams">
-                        <div class="team">
-                            <img src="https://ssl.gstatic.com/onebox/media/sports/logos/k6m3hoy4Rn3KRrMYSYDjog_96x96.png" alt="Seattle Sounders" class="team-logo">
-                            <div class="team-name">Seattle Sounders</div>
-                        </div>
-                        <div class="vs">VS</div>
-                        <div class="team">
-                            <img src="https://ssl.gstatic.com/onebox/media/sports/logos/mcpMspef1hwHwi9qrfp4YQ_96x96.png" alt="PSG" class="team-logo">
-                            <div class="team-name">PSG</div>
-                        </div>
-                    </div>
-                    <div class="match-day">Match Day 3 of 3</div>
-                    <div class="match-info">
-                        <div class="match-time">12:30 AM IST</div>
-                        <button class="status-btn upcoming">Upcoming</button>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Continue with all Matchday 3 matches -->
-            <!-- ... -->
-            
-            <!-- Match 16 -->
-            <div class="match-card" id="match48">
-                <div class="match-header">
-                    <span class="match-stage">Group Stage</span>
-                    <span class="match-date">June 27, 2025</span>
-                </div>
-                <div class="match-content">
-                    <div class="teams">
-                        <div class="team">
-                            <img src="https://ssl.gstatic.com/onebox/media/sports/logos/vQhr4NoE_4Yg1IhUZvbRNw_96x96.png" alt="RB Salzburg" class="team-logo">
-                            <div class="team-name">RB Salzburg</div>
-                        </div>
-                        <div class="vs">VS</div>
-                        <div class="team">
-                            <img src="https://ssl.gstatic.com/onebox/media/sports/logos/Th4fAVAZeCJWRcKoLW7koA_96x96.png" alt="Real Madrid" class="team-logo">
-                            <div class="team-name">Real Madrid</div>
-                        </div>
-                    </div>
-                    <div class="match-day">Match Day 3 of 3</div>
-                    <div class="match-info">
-                        <div class="match-time">6:30 AM IST</div>
-                        <button class="status-btn upcoming">Upcoming</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Knockout Stages -->
-        <h2 class="section-title">Round of 16</h2>
-        <div class="matches-grid">
-            <!-- Round of 16 matches -->
-            <!-- ... -->
-        </div>
-        
-        <h2 class="section-title">Quarter Finals</h2>
-        <div class="matches-grid">
-            <!-- Quarter Final matches -->
-            <!-- ... -->
-        </div>
-        
-        <h2 class="section-title">Semi Finals</h2>
-        <div class="matches-grid">
-            <!-- Semi Final matches -->
-            <!-- ... -->
-        </div>
-        
-        <h2 class="section-title">Final</h2>
-        <div class="matches-grid">
-            <div class="match-card" id="final">
-                <div class="match-header">
-                    <span class="match-stage">Final</span>
-                    <span class="match-date">July 14, 2025</span>
-                </div>
-                <div class="match-content">
-                    <div class="teams">
-                        <div class="team">
-                            <div class="team-name">TBD</div>
-                        </div>
-                        <div class="vs">VS</div>
-                        <div class="team">
-                            <div class="team-name">TBD</div>
-                        </div>
-                    </div>
-                    <div class="match-info">
-                        <div class="match-time">12:30 AM IST</div>
-                        <button class="status-btn upcoming">Upcoming</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <script>
-        // Function to convert IST time to Date object
-        function createISTDate(dateString, timeString) {
-            const [day, month, year] = dateString.split(' ')[1].split('-').map(Number);
-            const [hours, minutes] = timeString.split(':').map(Number);
-            
-            // IST is UTC+5:30
-            const utcHours = hours - 5;
-            const utcMinutes = minutes - 30;
-            
-            // Adjust if minutes go negative
-            let adjustedHours = utcHours;
-            let adjustedMinutes = utcMinutes;
-            if (utcMinutes < 0) {
-                adjustedHours -= 1;
-                adjustedMinutes += 60;
-            }
-            
-            return new Date(Date.UTC(year, month - 1, day, adjustedHours, adjustedMinutes));
-        }
-        
-        // Function to update match status based on current time
-        function updateMatchStatus() {
-            const now = new Date();
-            const matches = [
-                // Previous matchday 1 matches
-                // ...
-                
-                // Matchday 2 matches
-                { id: 'match17', date: '19 Jun 2025', time: '9:30' },
-                { id: 'match18', date: '20 Jun 2025', time: '0:30' },
-                // ... all other matches
-                
-                // Final
-                { id: 'final', date: '14 Jul 2025', time: '0:30' }
-            ];
-            
-            matches.forEach(match => {
-                const card = document.getElementById(match.id);
-                if (!card) return;
-                
-                const btn = card.querySelector('.status-btn');
-                const matchDate = createISTDate(match.date, match.time);
-                const endDate = new Date(matchDate.getTime() + 2 * 60 * 60 * 1000); // Assume matches last 2 hours
-                
-                if (now < matchDate) {
-                    // Match is upcoming
-                    btn.className = 'status-btn upcoming';
-                    btn.textContent = 'Upcoming';
-                } else if (now >= matchDate && now <= endDate) {
-                    // Match is live
-                    btn.className = 'status-btn live';
-                    btn.textContent = 'LIVE';
-                } else {
-                    // Match is completed
-                    btn.className = 'status-btn completed';
-                    btn.textContent = 'Completed';
-                }
-            });
-        }
-        
-        // Check status every minute
-        updateMatchStatus();
-        setInterval(updateMatchStatus, 60000);
-        
-        // Filter functionality
-        document.querySelectorAll('.filter-btn').forEach(btn => {
-            btn.addEventListener('click', () => {
-                document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-                btn.classList.add('active');
-                
-                const filter = btn.textContent;
-                const matches = document.querySelectorAll('.match-card');
-                
-                matches.forEach(match => {
-                    const status = match.querySelector('.status-btn').classList;
-                    match.style.display = 'block';
-                    
-                    if (filter === 'Upcoming' && !status.contains('upcoming')) {
-                        match.style.display = 'none';
-                    } else if (filter === 'Live' && !status.contains('live')) {
-                        match.style.display = 'none';
-                    } else if (filter === 'Completed' && !status.contains('completed')) {
-                        match.style.display = 'none';
-                    }
-                });
-            });
-        });
-        
-        // Initialize with upcoming matches only
-        document.querySelector('.filter-btn.active').click();
-    </script>
-</body>
-</html>
+<html></html>
