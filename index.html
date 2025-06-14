@@ -424,6 +424,152 @@
         ::-webkit-scrollbar-thumb:hover {
             background: var(--primary-dark);
         }
+.watch-options {
+    display: flex;
+    gap: 8px;
+    margin-top: 12px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .watch-btn {
+    padding: 6px 12px;
+    border: none;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  
+  .watch-btn.server1 { background-color: #2563eb; }
+  .watch-btn.server2 { background-color: #10b981; }
+  .watch-btn.server3 { background-color: #ef4444; }
+  
+  .watch-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  }
+  
+  .watch-spinner {
+    width: 14px;
+    height: 14px;
+    border: 2px solid rgba(255,255,255,0.3);
+    border-radius: 50%;
+    border-top-color: white;
+    animation: spin 1s linear infinite;
+    display: none;
+  }
+  
+  @keyframes spin {
+    to { transform: rotate(360deg); }
+  }
+  
+  .quality-badge {
+    font-size: 0.6rem;
+    background: rgba(0,0,0,0.2);
+    padding: 2px 6px;
+    border-radius: 10px;
+  }
+  
+  .connection-status {
+    margin-top: 8px;
+    padding: 6px;
+    border-radius: 4px;
+    font-size: 0.7rem;
+    text-align: center;
+    display: none;
+    background: rgba(255,255,255,0.1);
+    color: white;
+    width: 100%;
+  }
+  
+  .watch-btn.connected {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .watch-btn.connected::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255,255,255,0.2);
+    animation: pulse 1.5s infinite;
+  }
+  
+  @keyframes pulse {
+    0% { opacity: 0; }
+    50% { opacity: 0.4; }
+    100% { opacity: 0; }
+  }
+</style>
+
+<script>
+       let activeServer = null;
+  
+      function connectToServer(serverId, button) {
+      const matchCard = button.closest('.match-card');
+      const spinner = button.querySelector('.watch-spinner');
+      const btnText = button.querySelector('.btn-text');
+      const statusElement = matchCard.querySelector('.connection-status');
+    
+    // If already connected to this server, disconnect
+    if (button.classList.contains('connected')) {
+      disconnectServer(button, statusElement);
+      return;
+    }
+    
+    // Disconnect any other active connection
+    if (activeServer && activeServer !== button) {
+      const prevMatchCard = activeServer.closest('.match-card');
+      const prevStatusElement = prevMatchCard.querySelector('.connection-status');
+      disconnectServer(activeServer, prevStatusElement);
+    }
+    
+    // Show loading state
+    button.disabled = true;
+    btnText.textContent = 'Connecting...';
+    spinner.style.display = 'block';
+    statusElement.style.display = 'none';
+    
+    // Simulate connection
+    setTimeout(() => {
+      spinner.style.display = 'none';
+      button.disabled = false;
+      btnText.textContent = serverId.charAt(0).toUpperCase() + serverId.slice(1);
+      button.classList.add('connected');
+      activeServer = button;
+      
+      statusElement.textContent = `Connected to ${serverId} (720p)`;
+      statusElement.style.display = 'block';
+      
+      console.log(`Connected to ${serverId}`);
+    }, 1000);
+  }
+  
+  function disconnectServer(button, statusElement) {
+    const spinner = button.querySelector('.watch-spinner');
+    const btnText = button.querySelector('.btn-text');
+    
+    button.classList.remove('connected');
+    spinner.style.display = 'none';
+    btnText.textContent = button.classList.contains('server1') ? 'Server 1' : 
+                         button.classList.contains('server2') ? 'Server 2' : 'Server 3';
+    statusElement.style.display = 'none';
+    activeServer = null;
+    
+    console.log('Disconnected');
+  }
+</script>
     </style>
 </head>
 <body>
