@@ -513,6 +513,286 @@
         100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(239, 68, 68, 0); }
     }
 </style>
+<script>
+// Match data with scheduled times (24-hour format HH:MM)
+const matches = [
+    // Completed matches (already happened)
+    {
+        id: "match1",
+        date: "June 15, 2025",
+        time: "05:30",
+        teams: ["Al Ahly", "Inter Miami"],
+        status: "completed",
+        score: "0 - 0"
+    },
+    {
+        id: "match2",
+        date: "June 15, 2025", 
+        time: "21:30",
+        teams: ["Bayern Munich", "Auckland City"],
+        status: "completed",
+        score: "10 - 0"
+    },
+    {
+        id: "match3",
+        date: "June 16, 2025",
+        time: "00:30",
+        teams: ["PSG", "Atlético Madrid"],
+        status: "completed", 
+        score: "4 - 0"
+    },
+    {
+        id: "match4",
+        date: "June 16, 2025",
+        time: "03:30",
+        teams: ["Palmeiras", "Porto"],
+        status: "completed",
+        score: "0 - 0"
+    },
+    {
+        id: "match5",
+        date: "June 16, 2025",
+        time: "07:30",
+        teams: ["Botafogo", "Seattle Sounders"],
+        status: "completed",
+        score: "2 - 1"
+    },
+
+    // Upcoming matches
+    {
+        id: "match6",
+        date: "June 17, 2025",
+        time: "00:30",
+        teams: ["Chelsea", "León"],
+        streamingLinks: [
+            {url: "https://dazn5-by-matcheslinks.vercel.app/chelsea1", label: "Link 1 (HD)"},
+            {url: "https://dazn5-by-matcheslinks.vercel.app/chelsea2", label: "Link 2 (FHD)"},
+            {url: "https://dazn5-by-matcheslinks.vercel.app/chelsea3", label: "Backup"}
+        ]
+    },
+    {
+        id: "match7",
+        date: "June 17, 2025",
+        time: "03:30",
+        teams: ["Boca Juniors", "Benfica"],
+        streamingLinks: [
+            {url: "https://dazn5-by-matcheslinks.vercel.app/boca1", label: "Primary"},
+            {url: "https://dazn5-by-matcheslinks.vercel.app/boca2", label: "Secondary"}
+        ]
+    },
+    {
+        id: "match8",
+        date: "June 17, 2025",
+        time: "06:30",
+        teams: ["Flamengo", "Espérance de Tunis"],
+        streamingLinks: [
+            {url: "https://dazn5-by-matcheslinks.vercel.app/flamengo1", label: "HD Stream"},
+            {url: "https://dazn5-by-matcheslinks.vercel.app/flamengo2", label: "4K Stream"}
+        ]
+    },
+    {
+        id: "match9",
+        date: "June 17, 2025",
+        time: "21:30",
+        teams: ["Fluminense", "Borussia Dortmund"],
+        streamingLinks: [
+            {url: "https://dazn5-by-matcheslinks.vercel.app/flu1", label: "Link 1"},
+            {url: "https://dazn5-by-matcheslinks.vercel.app/flu2", label: "Link 2"}
+        ]
+    },
+    {
+        id: "match10",
+        date: "June 18, 2025",
+        time: "00:30",
+        teams: ["River Plate", "Urawa Reds"],
+        streamingLinks: [
+            {url: "https://dazn5-by-matcheslinks.vercel.app/river1", label: "Main"},
+            {url: "https://dazn5-by-matcheslinks.vercel.app/river2", label: "Alt"}
+        ]
+    },
+    {
+        id: "match11",
+        date: "June 18, 2025",
+        time: "03:30",
+        teams: ["Ulsan", "Mamelodi Sundowns"],
+        streamingLinks: [
+            {url: "https://dazn5-by-matcheslinks.vercel.app/ulsan1", label: "Stream 1"},
+            {url: "https://dazn5-by-matcheslinks.vercel.app/ulsan2", label: "Stream 2"}
+        ]
+    },
+    {
+        id: "match12",
+        date: "June 18, 2025",
+        time: "06:30",
+        teams: ["Monterrey", "Inter Milan"],
+        streamingLinks: [
+            {url: "https://dazn5-by-matcheslinks.vercel.app/monterrey1", label: "HD"},
+            {url: "https://dazn5-by-matcheslinks.vercel.app/monterrey2", label: "FHD"}
+        ]
+    },
+    {
+        id: "match13",
+        date: "June 18, 2025",
+        time: "21:30",
+        teams: ["Man City", "Wydad AC"],
+        streamingLinks: [
+            {url: "https://dazn5-by-matcheslinks.vercel.app/mancity1", label: "Primary"},
+            {url: "https://dazn5-by-matcheslinks.vercel.app/mancity2", label: "Backup"}
+        ]
+    },
+    {
+        id: "match14",
+        date: "June 19, 2025",
+        time: "00:30",
+        teams: ["Real Madrid", "Al Hilal"],
+        streamingLinks: [
+            {url: "https://dazn5-by-matcheslinks.vercel.app/realmadrid1", label: "Link A"},
+            {url: "https://dazn5-by-matcheslinks.vercel.app/realmadrid2", label: "Link B"}
+        ]
+    },
+    {
+        id: "match15",
+        date: "June 19, 2025",
+        time: "03:30",
+        teams: ["Pachua", "RB Salzburg"],
+        streamingLinks: [
+            {url: "https://dazn5-by-matcheslinks.vercel.app/pachua1", label: "Stream 1"},
+            {url: "https://dazn5-by-matcheslinks.vercel.app/pachua2", label: "Stream 2"}
+        ]
+    },
+    {
+        id: "match16",
+        date: "June 19, 2025",
+        time: "06:30",
+        teams: ["Al Ain", "Juventus"],
+        streamingLinks: [
+            {url: "https://dazn5-by-matcheslinks.vercel.app/alahly1", label: "Main Link"},
+            {url: "https://dazn5-by-matcheslinks.vercel.app/alahly2", label: "Backup Link"}
+        ]
+    }
+];
+
+// Main function to check and update match statuses
+function updateMatchStatuses() {
+    const now = new Date();
+    const currentHours = String(now.getHours()).padStart(2, '0');
+    const currentMinutes = String(now.getMinutes()).padStart(2, '0');
+    const currentTime = `${currentHours}:${currentMinutes}`;
+    
+    matches.forEach(match => {
+        const matchCard = document.getElementById(match.id);
+        if (!matchCard) return;
+        
+        const statusBtn = matchCard.querySelector('.status-btn');
+        const timeElement = matchCard.querySelector('.match-time');
+        const vsElement = matchCard.querySelector('.vs');
+        
+        // For completed matches
+        if (match.status === "completed") {
+            statusBtn.classList.remove('upcoming', 'live');
+            statusBtn.classList.add('completed');
+            statusBtn.textContent = 'Completed';
+            
+            // Add score if not already present
+            if (!matchCard.querySelector('.match-result')) {
+                const scoreHTML = `
+                <div class="match-result">
+                    <div class="score">${match.score}</div>
+                    <div class="match-status">Full Time</div>
+                </div>`;
+                
+                if (vsElement) {
+                    vsElement.insertAdjacentHTML('afterend', scoreHTML);
+                }
+            }
+            return;
+        }
+        
+        // For upcoming/live matches
+        if (match.time === currentTime) {
+            // Match is starting now - change to Live
+            statusBtn.classList.remove('upcoming');
+            statusBtn.classList.add('live');
+            statusBtn.textContent = 'Live';
+            
+            // Add streaming links if they don't exist
+            if (!matchCard.querySelector('.streaming-section') && match.streamingLinks) {
+                const streamingHTML = `
+                <div class="streaming-section">
+                    <div class="streaming-title">
+                        <span class="link-icon">📺</span>
+                        Watch Live:
+                    </div>
+                    <div class="stream-links">
+                        ${match.streamingLinks.map(link => `
+                        <a href="${link.url}" target="_blank" class="stream-link">
+                            ${link.label}
+                        </a>
+                        `).join('')}
+                    </div>
+                </div>`;
+                
+                const matchInfo = matchCard.querySelector('.match-info');
+                if (matchInfo) {
+                    matchInfo.insertAdjacentHTML('afterend', streamingHTML);
+                    
+                    // Auto-scroll to show the streaming links
+                    setTimeout(() => {
+                        matchCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    }, 1000);
+                }
+            }
+        }
+    });
+}
+
+// Initialize completed matches on page load
+document.addEventListener('DOMContentLoaded', function() {
+    // Set up completed matches first
+    matches.filter(m => m.status === "completed").forEach(match => {
+        const matchCard = document.getElementById(match.id);
+        if (matchCard) {
+            const statusBtn = matchCard.querySelector('.status-btn');
+            if (statusBtn) {
+                statusBtn.classList.remove('upcoming', 'live');
+                statusBtn.classList.add('completed');
+                statusBtn.textContent = 'Completed';
+                
+                // Add score display
+                if (!matchCard.querySelector('.match-result')) {
+                    const scoreHTML = `
+                    <div class="match-result">
+                        <div class="score">${match.score}</div>
+                        <div class="match-status">Full Time</div>
+                    </div>`;
+                    
+                    const vsElement = matchCard.querySelector('.vs');
+                    if (vsElement) {
+                        vsElement.insertAdjacentHTML('afterend', scoreHTML);
+                    }
+                }
+            }
+        }
+    });
+    
+    // Start the live checking
+    updateMatchStatuses();
+});
+
+// Check every minute for matches starting
+setInterval(updateMatchStatuses, 60000);
+
+// Optional: Auto-scroll to live matches every 5 minutes
+setInterval(() => {
+    const liveMatches = document.querySelectorAll('.status-btn.live');
+    if (liveMatches.length > 0) {
+        liveMatches[0].closest('.match-card').scrollIntoView({ 
+            behavior: 'smooth', 
+            block: 'center' 
+        });
+    }
+}, 300000);
+</script>
 </head>
 <body>
     <div class="header">
